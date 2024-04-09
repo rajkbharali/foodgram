@@ -9,3 +9,7 @@
 - Consistent Hashing
 - Differential Bundling - makes app support for even older browsers
 - Good error handling/ Diagnostics
+
+# Types of Exports from Components
+- default export 
+- named export
