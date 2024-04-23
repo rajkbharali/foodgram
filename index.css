@@ -26,11 +26,22 @@
     font-size: large;
     cursor: pointer;
 }
+.nav-list a{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    color: #3d4152;
+    font-size: large;
+    cursor: pointer;
+}
 .nav-list svg{
     color: #3d4152;
     margin-right: 5px;
 }
 .nav-list li:hover{
+    color: #fc8019;
+}
+.nav-list a:hover{
     color: #fc8019;
 }
 .food-card-main{
@@ -42,6 +53,7 @@
     position: relative;
     width: 250px;
     margin: 10px 15px;
+    cursor: pointer;
 }
 .food-card-container:hover {
     transform: scale(0.95);

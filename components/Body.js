@@ -15,7 +15,7 @@ const Body = () => {
         const json = await data.json()
         const reqData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setListRestaurants(reqData)
-        console.log(reqData)
+        // console.log(reqData)
     }
 
     return (
