@@ -1,9 +1,6 @@
-// import React from "react"
-import { useState,useEffect } from "react"
-import FoodCard from "./FoodCard"
-import CardShimmer from "./CardShimmer"
+import { useEffect, useState } from "react"
 
-const Body = () => {
+const useRestaurantList = () => {
     const [listRestaurants, setListRestaurants] = useState([])
 
     useEffect(() => {
@@ -18,16 +15,7 @@ const Body = () => {
         // console.log(reqData)
     }
 
-    return (
-        <div className="body-container">
-            {listRestaurants.length===0 ? <CardShimmer/> : (
-                <div className="food-card-main">
-                    {listRestaurants.map(rest => <FoodCard key={rest.info.id} reqObj={rest}/>)}
-                </div>
-
-            )}
-        </div>
-    )
+    return listRestaurants
 }
 
-export default Body
+export default useRestaurantList
