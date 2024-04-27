@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useOnlineChecker from "../utils/useOnlineChecker";
+import { LOGO_URL } from "../utils/constants";
 
 import { IoBagOutline } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
@@ -14,11 +15,11 @@ const Header = () => {
         <div className="flex justify-between m-2 px-24 py-0 shadow-[0_5px_42px_-13px_rgba(0,0,0,0.44)]">
             <div className="m-2.5 flex flex-col justify-center">
                 <Link to="/">
-                    <img className="h-12 cursor-pointer" src="https://logos-world.net/wp-content/uploads/2020/11/Swiggy-Emblem.png"/>
+                    <img className="h-12 cursor-pointer" src={LOGO_URL}/>
                 </Link>
             </div>
             <div>
-                <ul className="flex items-center m-0  hover:*:text-orange-500">
+                <ul className="flex items-center m-0  hover:*:text-red-600">
                     <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">{checkOnlineStatus ? "Online" : "Offline"}</li>
                     <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
                         <IoSearchSharp className="mx-1"/>

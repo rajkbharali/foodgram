@@ -3,7 +3,6 @@ import { MdStars } from "react-icons/md";
 
 const FoodCard = ({reqObj}) => {
     const backgroundUrl = IMAGE_URL + reqObj?.info?.cloudinaryImageId
-    console.log(backgroundUrl)
 
     return (
         <div className="relative w-60 my-2 mx-4 hover:scale-95 ease-in-out duration-300">
@@ -25,6 +24,18 @@ const FoodCard = ({reqObj}) => {
             </div>
         </div>
     )
+}
+
+//Higher Order Function
+export const highRatedRestaurants = (FoodCard) => {
+    return (props) => {
+        return (
+            <>
+                <label className="absolute z-10 m-2 px-3 py-1 bg-black text-white text-sm rounded-2xl">TOP RATED</label>
+                <FoodCard {...props}/>
+            </>
+        )
+    }
 }
 
 export default FoodCard
