@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 
 const RestaurantMenuCategoryDropdown = ({ menuData }) => {
-  // console.log(menuData)
+  // console.log(menuData);
   const dispatch = useDispatch();
 
   const handleAddCardItems = (item) => {
@@ -37,14 +37,17 @@ const RestaurantMenuCategoryDropdown = ({ menuData }) => {
             />
             <button
               className="absolute top-32 left-9 m-2 px-6 py-1 border-2 border-white rounded-lg font-semibold text-lg text-white bg-black"
-              onClick={() => handleAddCardItems(menuData.card.info)}
+              onClick={() => handleAddCardItems(menuData)}
             >
               ADD
             </button>
           </div>
         ) : (
           <div className="flex flex-col m-auto justify-center">
-            <button className="m-2 px-6 py-1 mr-5 border-2 border-white rounded-lg font-semibold text-lg text-white bg-black">
+            <button
+              className="m-2 px-6 py-1 mr-5 border-2 border-white rounded-lg font-semibold text-lg text-white bg-black"
+              onClick={() => handleAddCardItems(menuData.card.info)}
+            >
               ADD
             </button>
           </div>

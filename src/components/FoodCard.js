@@ -6,7 +6,10 @@ const FoodCard = ({ reqObj }) => {
   const backgroundUrl = IMAGE_URL + reqObj?.info?.cloudinaryImageId;
 
   return (
-    <div className="relative w-60 my-2 mx-4 hover:scale-95 ease-in-out duration-300">
+    <div
+      data-testid="foodCard"
+      className="w-60 my-2 mx-4 hover:scale-95 ease-in-out duration-300"
+    >
       <div
         className="flex items-end h-60 top-0 text-white text-lg rounded-3xl shadow-[inset_black_0_-70px_50px_-15px]"
         style={{

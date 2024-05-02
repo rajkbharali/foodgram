@@ -3,6 +3,22 @@ import Contact from "../Contact";
 import "@testing-library/jest-dom";
 
 describe("Group of test cases for Contact Component", () => {
+  beforeAll(() => {
+    //can pass anything to do before running all the test cases
+  });
+
+  beforeEach(() => {
+    // can pass anything we want to run before each test case
+  });
+
+  afterAll(() => {
+    //can pass anything to do after running all the test cases
+  });
+
+  afterEach(() => {
+    // can pass anything we want to run after each test case
+  });
+
   // to test the function used can be either "test()" or "it()"
   test("Should Check if Contact component is rendered properly", () => {
     render(<Contact />);
