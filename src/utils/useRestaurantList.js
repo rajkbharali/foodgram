@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 const useRestaurantList = () => {
   const [listRestaurants, setListRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [dishCarouselItems, setDishCarouselItems] = useState([]);
+  const [topRestaurants, setTopRestaurants] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -14,14 +16,27 @@ const useRestaurantList = () => {
     );
     const json = await data.json();
     const reqData =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    const reqDishCarouselData =
+      json?.data?.cards[0]?.card?.card?.imageGridCards?.info;
+    const topRestaurantData =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setListRestaurants(reqData);
     setFilteredRestaurants(reqData);
-    // console.log(reqData)
+    setDishCarouselItems(reqDishCarouselData);
+    setTopRestaurants(topRestaurantData);
+    // console.log(json);
   };
 
-  return { listRestaurants, filteredRestaurants, setFilteredRestaurants };
+  return {
+    listRestaurants,
+    dishCarouselItems,
+    filteredRestaurants,
+    topRestaurants,
+    setFilteredRestaurants,
+  };
 };
 
 export default useRestaurantList;

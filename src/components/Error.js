@@ -1,14 +1,13 @@
-import { useRouteError } from "react-router-dom"
+import { useRouteError } from "react-router-dom";
 
 const Error = () => {
-  const err = useRouteError()
-  console.log(err)
+  const err = useRouteError();
+  console.log(err);
   return (
     <div>
-        <h1>{err.status}</h1>
-        <p>Error Message : {err.error.message}</p>
+      <h1>{err.status}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Error
+export default Error;

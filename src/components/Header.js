@@ -11,8 +11,8 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoSearchSharp } from "react-icons/io5";
 
 const Header = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  // console.log(cartItems);
+  const cartItems = useSelector((state) => state.cart);
+  // console.log(Object.keys(cartItems).length);
   const loggedIn = useSelector((state) => state.authenticate.loggedIn);
   const dispatch = useDispatch();
   const checkOnlineStatus = useOnlineChecker();
@@ -59,7 +59,7 @@ const Header = () => {
           <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <Link className="flex items-center" to="/cart">
               <IoBagOutline className="mx-1" />
-              Cart ({cartItems.length})
+              Cart ({Object.keys(cartItems).length})
             </Link>
           </li>
           <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
