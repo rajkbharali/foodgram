@@ -1,21 +1,24 @@
+import { CONTACT_IMG } from "../utils/constants";
+
 const Contact = () => {
   return (
-    <div className="flex m-2 p-2 items-center text-center">
-      <div className="m-auto">
-        <h1 className="m-5 font-bold text-xl">Contact Us</h1>
-        <h3 className="m-4 text-lg bg-gray-300 rounded-md">Enter Details</h3>
-        <form className="m-4 flex flex-col border-2 border-solid rounded-md">
+    <div className="flex justify-center my-16 items-center text-center">
+      <div className="w-1/3">
+        <img src={CONTACT_IMG} />
+      </div>
+      <div className="w-1/3 py-28">
+        <form className="m-4 flex flex-col">
           <input
-            className="m-2 p-2 border border-black rounded-md"
+            className="m-2 p-2 border rounded-md border-slate-300"
             type="text"
             placeholder="Name"
           />
           <input
-            className="m-2 p-2 border border-black rounded-md"
+            className="m-2 p-2 border border-slate-300 rounded-md"
             type="text"
             placeholder="Message"
           />
-          <button className="m-2 p-2 bg-black text-white rounded-md">
+          <button className="flex m-auto px-5 py-2 max-w-fit bg-black text-white rounded-md">
             Submit
           </button>
         </form>

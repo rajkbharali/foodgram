@@ -31,7 +31,7 @@ const BodyDishCarousel = ({ data }) => {
       <h1 className="text-2xl font-bold ml-5">What's on your mind?</h1>
       <div className="slider-container">
         <Slider {...settings}>
-          {data.map((x, index) => (
+          {data?.map((x, index) => (
             <div key={index} style={{ width: "150px" }}>
               <img
                 className="cursor-pointer"

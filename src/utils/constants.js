@@ -9,3 +9,6 @@ export const DISH_CAROUSEL_IMG =
 
 export const EMPTY_CART =
   "https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png";
+
+export const CONTACT_IMG =
+  "https://drinkprime.in/images/mobile-charcter-contact-us.webp";
