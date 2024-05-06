@@ -33,7 +33,7 @@ const TopRestaurantCarousel = ({ data }) => {
       <h1 className="text-2xl font-bold ml-5 mt-5">Top restaurant chains</h1>
       <div className="slider-container">
         <Slider {...settings}>
-          {data.map((x, index) => (
+          {data?.map((x, index) => (
             <Link key={x.info.id} to={`/restaurants/${x.info.id}`}>
               <div
                 className="my-2 mx-3 scale-95 hover:scale-100 ease-in-out duration-300 cursor-pointer"

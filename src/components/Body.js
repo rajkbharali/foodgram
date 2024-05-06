@@ -29,7 +29,7 @@ const Body = () => {
         </>
       ) : (
         <div className="">
-          {dishCarouselItems && <BodyDishCarousel data={dishCarouselItems} />}
+          <BodyDishCarousel data={dishCarouselItems} />
           <TopRestaurantCarousel data={topRestaurants} />
           <h1 className="text-2xl font-bold ml-5 mt-5">
             Restaurants with online food delivery

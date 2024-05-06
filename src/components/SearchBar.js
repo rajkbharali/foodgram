@@ -9,8 +9,8 @@ const SearchBar = ({ restList, setFilteredRestaurants }) => {
   };
 
   useEffect(() => {
-    const filterRes = restList.filter((x) =>
-      x.info.name.toLowerCase().includes(searchValue.toLowerCase())
+    const filterRes = restList?.filter((x) =>
+      x?.info?.name?.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredRestaurants(filterRes);
   }, [searchValue]);

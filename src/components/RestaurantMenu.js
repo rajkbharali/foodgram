@@ -32,7 +32,7 @@ const RestaurantMenu = () => {
   const restaurantCategories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (x) =>
-        x.card.card["@type"] ===
+        x?.card?.card["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
@@ -68,7 +68,7 @@ const RestaurantMenu = () => {
           ></p>
         </div>
       </div>
-      {restaurantCategories.map((x, index) => (
+      {restaurantCategories?.map((x, index) => (
         <RestaurantMenuCategory
           key={index}
           data={x}
