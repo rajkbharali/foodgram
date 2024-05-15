@@ -4,10 +4,11 @@ import { increaseDecreaseAnItemCount, removeItem } from "../utils/cartSlice";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { removeResName } from "../utils/restaurantSlice";
 
 const CartItems = ({ menuData, cartItems }) => {
   // const cartItems = useSelector((state) => state.cart.items);
-  // console.log(cartItems);
+  console.log(cartItems);
 
   const dispatch = useDispatch();
 
@@ -17,23 +18,41 @@ const CartItems = ({ menuData, cartItems }) => {
     const newObj = {
       [id]: { ...item, quantity: newQuantity },
     };
-    console.log(newObj);
+    // console.log(newObj);
     dispatch(increaseDecreaseAnItemCount(newObj));
   };
 
   const handleDecreaseItemCount = (item, id) => {
-    if (item.quantity === 1) {
-      dispatch(removeItem(id));
+    if (Object.keys(cartItems).length > 1) {
+      if (item.quantity === 1) {
+        dispatch(removeItem(id));
+      } else {
+        const newQuantity = item.quantity - 1;
+        const newObj = {
+          [id]: { ...item, quantity: newQuantity },
+        };
+        dispatch(increaseDecreaseAnItemCount(newObj));
+      }
     } else {
-      const newQuantity = item.quantity - 1;
-      const newObj = {
-        [id]: { ...item, quantity: newQuantity },
-      };
-      dispatch(increaseDecreaseAnItemCount(newObj));
+      if (item.quantity === 1) {
+        dispatch(removeItem(id));
+        dispatch(removeResName());
+      } else {
+        const newQuantity = item.quantity - 1;
+        const newObj = {
+          [id]: { ...item, quantity: newQuantity },
+        };
+        dispatch(increaseDecreaseAnItemCount(newObj));
+      }
     }
   };
   const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+    if (Object.keys(cartItems).length > 1) {
+      dispatch(removeItem(id));
+    } else {
+      dispatch(removeItem(id));
+      dispatch(removeResName());
+    }
   };
 
   const { id, name, price, defaultPrice, isVeg } = menuData?.card?.info;

@@ -1,17 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
-import { EMPTY_CART } from "../utils/constants";
+import { EMPTY_CART, IMAGE_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { clearCart } from "../utils/cartSlice";
+import BillingCard from "./BillingCard";
+import { removeResName } from "../utils/restaurantSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
-  // console.log(cartItems);
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    dispatch(removeResName());
   };
 
   return Object.keys(cartItems).length === 0 ? (
@@ -45,6 +47,7 @@ const Cart = () => {
           <CartItems key={index} menuData={x} cartItems={cartItems} />
         ))}
       </div>
+      <BillingCard data={cartItems} />
     </div>
   );
 };

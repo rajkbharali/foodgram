@@ -38,7 +38,7 @@ const Body = () => {
             restList={listRestaurants}
             setFilteredRestaurants={setFilteredRestaurants}
           />
-          <div className="flex flex-wrap justify-center">
+          <div className="grid grid-cols-[repeat(auto-fill,250px)] gap-x-2 justify-center">
             {filteredRestaurants?.map((rest) => (
               <Link key={rest.info.id} to={`/restaurants/${rest.info.id}`}>
                 {rest.info.avgRating >= 4.2 ? (

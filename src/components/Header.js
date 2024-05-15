@@ -9,67 +9,77 @@ import { IoPersonSharp } from "react-icons/io5";
 import { CgPokemon } from "react-icons/cg";
 import { BiSolidOffer } from "react-icons/bi";
 import { IoSearchSharp } from "react-icons/io5";
+import { setLoginOpen } from "../utils/modalSlice";
+import LoginSignUpModal from "./LoginSignUpModal";
 
 const Header = () => {
+  const isLoginForm = useSelector((state) => state.modal.loginModel);
+  console.log(isLoginForm);
   const cartItems = useSelector((state) => state.cart);
   // console.log(Object.keys(cartItems).length);
-  const loggedIn = useSelector((state) => state.authenticate.loggedIn);
+  // const loggedIn = useSelector((state) => state.authenticate.loggedIn);
   const dispatch = useDispatch();
   const checkOnlineStatus = useOnlineChecker();
 
   const handleLogin = () => {
-    dispatch(logIn());
+    dispatch(setLoginOpen());
   };
 
   return (
-    <div className="flex justify-between m-2 px-24 py-0 shadow-[0_5px_42px_-13px_rgba(0,0,0,0.44)] bg-white">
-      <div className="m-2.5 flex flex-col justify-center">
-        <Link to="/">
-          <img className="h-12 cursor-pointer" src={LOGO_URL} />
-        </Link>
-      </div>
-      <div>
-        <ul className="flex items-center m-0">
-          {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+    <>
+      <div className="flex justify-between m-2 px-24 py-0 shadow-[0_5px_42px_-13px_rgba(0,0,0,0.44)] bg-white">
+        <div className="m-2.5 flex flex-col justify-center">
+          <Link className="flex items-center" to="/">
+            <>
+              <img className="h-12 cursor-pointer" src={LOGO_URL} />
+              <h1 className="font-dancing font-semibold text-3xl pl-5">
+                Foodgram
+              </h1>
+            </>
+          </Link>
+        </div>
+        <div>
+          <ul className="flex items-center m-0">
+            {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             {checkOnlineStatus ? "Online" : "Offline"}
           </li> */}
-          {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+            {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <BiSolidOffer className="mx-1" />
             Offers
           </li> */}
-          <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+            {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <Link className="flex items-center" to="/help">
               <CgPokemon className="mx-1" />
               Help
             </Link>
-          </li>
-          <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
-            <Link className="flex items-center" to="/contact">
-              <CgPokemon className="mx-1" />
-              Contact
-            </Link>
-          </li>
-          {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+          </li> */}
+            <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+              <Link className="flex items-center" to="/contact">
+                <CgPokemon className="mx-1" />
+                Contact
+              </Link>
+            </li>
+            {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <IoPersonSharp className="mx-1" />
             Sign In
           </li>
           <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <Link to="/grocery">Grocery</Link>
           </li> */}
-          <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
-            <Link className="flex items-center" to="/cart">
-              <IoBagOutline className="mx-1" />
-              Cart ({Object.keys(cartItems).length})
-            </Link>
-          </li>
-          <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
-            <button onClick={handleLogin}>
-              {loggedIn ? "Logout" : "Login"}
-            </button>
-          </li>
-        </ul>
+            <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+              <Link className="flex items-center" to="/cart">
+                <IoBagOutline className="mx-1" />
+                Cart ({Object.keys(cartItems).length})
+              </Link>
+            </li>
+            <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
+              <button onClick={handleLogin}>Sign In</button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+      {isLoginForm ? <LoginSignUpModal /> : ""}
+    </>
   );
 };
 

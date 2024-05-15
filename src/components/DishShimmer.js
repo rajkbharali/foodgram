@@ -9,6 +9,7 @@ const DishShimmer = () => {
       <div className="m-5 w-32 h-32 rounded-full bg-gray-400"></div>
       <div className="m-5 w-32 h-32 rounded-full bg-gray-400"></div>
       <div className="m-5 w-32 h-32 rounded-full bg-gray-400"></div>
+      <div className="m-5 w-32 h-32 rounded-full bg-gray-400"></div>
     </div>
   );
 };

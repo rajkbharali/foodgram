@@ -2,7 +2,6 @@ import React from "react";
 
 const BodyNavBarButtons = () => {
   const buttonArr = [
-    "Sort By",
     "Fast Delivery",
     "New On Swiggy",
     "Ratings 4.0+",

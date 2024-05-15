@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./utils/store";
 
 import Header from "./components/Header";
@@ -12,17 +12,19 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import CardShimmer from "./components/CardShimmer";
 import Contact from "./components/Contact";
 import Cart from "./components/Cart";
+import LoginSignUpModal from "./components/LoginSignUpModal";
 
 //lazy loading //chunking //demand loading //dynamic bundling //code splitting
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const App = () => {
+  // const isLoginForm = useSelector((state) => state.modal.loginModel);
+  // console.log(isLoginForm);
   return (
     <Provider store={store}>
-      <div>
-        <Header />
-        <Outlet />
-      </div>
+      <Header />
+      <Outlet />
+      {/* {isLoginForm ? <LoginSignUpModal /> : ""} */}
     </Provider>
   );
 };
@@ -36,10 +38,10 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },
-      {
-        path: "/help",
-        element: <Help />,
-      },
+      // {
+      //   path: "/help",
+      //   element: <Help />,
+      // },
       {
         path: "/restaurants/:id",
         element: <RestaurantMenu />,

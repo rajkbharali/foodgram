@@ -27,7 +27,7 @@ const useRestaurantList = () => {
     setFilteredRestaurants(reqData);
     setDishCarouselItems(reqDishCarouselData);
     setTopRestaurants(topRestaurantData);
-    console.log(json);
+    // console.log(json);
   };
 
   return {
