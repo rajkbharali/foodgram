@@ -14,10 +14,7 @@ import LoginSignUpModal from "./LoginSignUpModal";
 
 const Header = () => {
   const isLoginForm = useSelector((state) => state.modal.loginModel);
-  console.log(isLoginForm);
   const cartItems = useSelector((state) => state.cart);
-  // console.log(Object.keys(cartItems).length);
-  // const loggedIn = useSelector((state) => state.authenticate.loggedIn);
   const dispatch = useDispatch();
   const checkOnlineStatus = useOnlineChecker();
 
@@ -27,12 +24,12 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-between m-2 px-24 py-0 shadow-[0_5px_42px_-13px_rgba(0,0,0,0.44)] bg-white">
+      <div className="flex justify-between m-2 px-24 py-0 shadow-lg bg-white rounded-sm">
         <div className="m-2.5 flex flex-col justify-center">
           <Link className="flex items-center" to="/">
             <>
               <img className="h-12 cursor-pointer" src={LOGO_URL} />
-              <h1 className="font-dancing font-semibold text-3xl pl-5">
+              <h1 className="font-dancing font-semibold text-2xl pl-2">
                 Foodgram
               </h1>
             </>
@@ -69,7 +66,10 @@ const Header = () => {
             <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
               <Link className="flex items-center" to="/cart">
                 <IoBagOutline className="mx-1" />
-                Cart ({Object.keys(cartItems).length})
+                Cart
+                <span className="text-black font-semibold">
+                  ({Object.keys(cartItems).length})
+                </span>
               </Link>
             </li>
             <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">

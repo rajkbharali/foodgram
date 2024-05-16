@@ -1,5 +1,5 @@
 import { IoMdRadioButtonOn } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { increaseDecreaseAnItemCount, removeItem } from "../utils/cartSlice";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
@@ -7,18 +7,13 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { removeResName } from "../utils/restaurantSlice";
 
 const CartItems = ({ menuData, cartItems }) => {
-  // const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
-
   const dispatch = useDispatch();
 
   const handleIncreaseItemCount = (item, id) => {
-    // console.log(item);
     const newQuantity = item.quantity + 1;
     const newObj = {
       [id]: { ...item, quantity: newQuantity },
     };
-    // console.log(newObj);
     dispatch(increaseDecreaseAnItemCount(newObj));
   };
 
@@ -60,7 +55,7 @@ const CartItems = ({ menuData, cartItems }) => {
   return (
     <div
       data-testid="cartItem"
-      className="m-2 p-5 flex justify-between shadow-lg"
+      className="m-2 p-5 flex justify-between items-center shadow-lg "
     >
       <div className="flex items-center">
         {!!isVeg ? (
@@ -68,9 +63,9 @@ const CartItems = ({ menuData, cartItems }) => {
         ) : (
           <IoMdRadioButtonOn className="text-red-600" />
         )}
-        <p className="pl-2 font-semibold text-lg text-gray-500">{name}</p>
+        <p className="pl-2 w-3/4 font-semibold text-sm text-gray-500">{name}</p>
       </div>
-      <div className="flex items-center px-5">
+      <div className="flex items-center">
         <div className="flex items-center top-32 left-9 m-2 py-1 border-2 border-white rounded-lg font-semibold text-lg text-white bg-black">
           <FaMinus
             className="mx-2 text-xs cursor-pointer"
@@ -86,8 +81,9 @@ const CartItems = ({ menuData, cartItems }) => {
           className="hover:text-red-600 cursor-pointer"
           onClick={() => handleRemoveItem(id)}
         />
-        <p className="pl-36 font-semibold">
-          ₹ {price ? price / 100 : defaultPrice / 100}
+        <p className="pl-36 font-semibold flex">
+          <span className="pr-1">₹</span>
+          <span>{price ? price / 100 : defaultPrice / 100}</span>
         </p>
       </div>
     </div>

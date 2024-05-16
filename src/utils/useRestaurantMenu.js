@@ -6,7 +6,6 @@ import { setOpen } from "./modalSlice";
 const useRestaurantMenu = (id) => {
   const [resInfo, setResInfo] = useState(null);
   const restaurantInfo = useSelector((state) => state.restData.name);
-  console.log(restaurantInfo);
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -25,9 +24,7 @@ const useRestaurantMenu = (id) => {
   useEffect(() => {
     if (resInfo !== null) {
       const { name } = resInfo?.cards[2]?.card.card.info;
-      console.log(name);
       if (restaurantInfo === null || restaurantInfo === name) {
-        //restaurantInfo === name
         dispatch(addResName({ name }));
       } else if (
         restaurantInfo !== name &&

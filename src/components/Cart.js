@@ -42,12 +42,14 @@ const Cart = () => {
           Clear Cart <RiDeleteBin6Line className="ml-1" />
         </button>
       </div>
-      <div>
-        {Object.values(cartItems).map((x, index) => (
-          <CartItems key={index} menuData={x} cartItems={cartItems} />
-        ))}
+      <div className="flex">
+        <div>
+          {Object.values(cartItems).map((x, index) => (
+            <CartItems key={index} menuData={x} cartItems={cartItems} />
+          ))}
+        </div>
+        <BillingCard data={cartItems} />
       </div>
-      <BillingCard data={cartItems} />
     </div>
   );
 };
