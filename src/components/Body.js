@@ -38,17 +38,30 @@ const Body = () => {
             restList={listRestaurants}
             setFilteredRestaurants={setFilteredRestaurants}
           />
-          <div className="grid grid-cols-[repeat(auto-fill,250px)] gap-x-2 justify-center">
-            {filteredRestaurants?.map((rest) => (
-              <Link key={rest.info.id} to={`/restaurants/${rest.info.id}`}>
-                {rest.info.avgRating >= 4.2 ? (
-                  <HighRatedRestaurants reqObj={rest} />
-                ) : (
-                  <FoodCard reqObj={rest} />
-                )}
-              </Link>
-            ))}
-          </div>
+          {filteredRestaurants.length > 0 ? (
+            <div className="grid grid-cols-[repeat(auto-fill,250px)] gap-x-2 justify-center">
+              {filteredRestaurants?.map((rest) => (
+                <Link key={rest.info.id} to={`/restaurants/${rest.info.id}`}>
+                  {rest.info.avgRating >= 4.2 ? (
+                    <HighRatedRestaurants reqObj={rest} />
+                  ) : (
+                    <FoodCard reqObj={rest} />
+                  )}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col justify-center items-center">
+              <img
+                className="w-64"
+                alt="not found"
+                src="https://img.freepik.com/premium-vector/no-data-concept-illustration_203587-28.jpg?size=338&ext=jpg&ga=GA1.1.2082370165.1715817600&semt=ais_user"
+              />
+              <h1 className="text-lg font-semibold">
+                Oops!! Restaurant not found
+              </h1>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -57,10 +57,6 @@ const Header = () => {
               </Link>
             </li>
             {/* <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
-            <IoPersonSharp className="mx-1" />
-            Sign In
-          </li>
-          <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
             <Link to="/grocery">Grocery</Link>
           </li> */}
             <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
@@ -73,7 +69,10 @@ const Header = () => {
               </Link>
             </li>
             <li className="flex items-center px-3 py-5 list-none text-gray-600 text-lg cursor-pointer">
-              <button onClick={handleLogin}>Sign In</button>
+              <button className="flex items-center" onClick={handleLogin}>
+                <IoPersonSharp className="mx-1" />
+                Sign In
+              </button>
             </li>
           </ul>
         </div>
