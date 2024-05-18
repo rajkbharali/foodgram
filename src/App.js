@@ -12,7 +12,6 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import CardShimmer from "./components/CardShimmer";
 import Contact from "./components/Contact";
 import Cart from "./components/Cart";
-import LoginSignUpModal from "./components/LoginSignUpModal";
 import FoodCategory from "./components/FoodCategory";
 
 //lazy loading //chunking //demand loading //dynamic bundling //code splitting
