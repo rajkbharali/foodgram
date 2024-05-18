@@ -13,6 +13,7 @@ import CardShimmer from "./components/CardShimmer";
 import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import LoginSignUpModal from "./components/LoginSignUpModal";
+import FoodCategory from "./components/FoodCategory";
 
 //lazy loading //chunking //demand loading //dynamic bundling //code splitting
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -24,7 +25,6 @@ const App = () => {
     <Provider store={store}>
       <Header />
       <Outlet />
-      {/* {isLoginForm ? <LoginSignUpModal /> : ""} */}
     </Provider>
   );
 };
@@ -45,6 +45,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "food/:id1/:id2",
+        element: <FoodCategory />,
       },
       {
         path: "/grocery",

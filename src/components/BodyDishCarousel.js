@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { DISH_CAROUSEL_IMG } from "../utils/constants";
 import "./BodyDishCarousel.css";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -33,10 +34,20 @@ const BodyDishCarousel = ({ data }) => {
         <Slider {...settings}>
           {data?.map((x, index) => (
             <div key={index} style={{ width: "150px" }}>
-              <img
-                className="cursor-pointer"
-                src={DISH_CAROUSEL_IMG + x.imageId}
-              />
+              <Link
+                to={`food/${
+                  x.action.link
+                    .split("/")
+                    .slice(-1)[0]
+                    .split("=")[2]
+                    .split("&")[0]
+                }/${x.action.link.split("/").slice(-1)[0].split("?")[0]}`}
+              >
+                <img
+                  className="cursor-pointer"
+                  src={DISH_CAROUSEL_IMG + x.imageId}
+                />
+              </Link>
             </div>
           ))}
         </Slider>
