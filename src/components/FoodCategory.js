@@ -8,7 +8,7 @@ const FoodCategory = () => {
   const params = useParams();
   const { id1, id2 } = params;
   const foodList = useFoodCategoryMenu(id1, id2);
-  console.log(foodList);
+  // console.log(foodList);
   if (foodList === null)
     return (
       <div className="mx-32 my-8">
