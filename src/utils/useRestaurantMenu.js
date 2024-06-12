@@ -15,9 +15,12 @@ const useRestaurantMenu = (id) => {
 
   async function fetchData() {
     const data = await fetch(
-      `https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=${id}`
+      `https://api.allorigins.win/get?url=${encodeURIComponent(
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=${id}`
+      )}`
     );
-    const json = await data.json();
+    const response = await data.json();
+    const json = await JSON.parse(response.contents);
     setResInfo(json.data);
   }
 
